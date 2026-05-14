@@ -1,6 +1,89 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Heart, Shield, PenLine, Star, Users, Lightbulb } from 'lucide-react'
+import { ArrowRight, Heart, Shield, PenLine, Star, Users, Lightbulb, CheckCircle, Clock } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
+
+const signed = [
+  {
+    name: 'Ryan Hutchinson',
+    title: 'Sr. Software Engineering Manager',
+    company: 'General Motors',
+    linkedin: 'https://www.linkedin.com/in/ryahutchinson/',
+    initials: 'RH',
+  },
+  {
+    name: 'Taís Assad Della Santina',
+    title: 'IT Executive · Head of Digital Transformation',
+    company: 'CI&T',
+    linkedin: 'https://www.linkedin.com/in/taisassad/',
+    initials: 'TA',
+  },
+  {
+    name: 'Chintan Parikh',
+    title: 'Founder',
+    company: 'Stealth',
+    linkedin: 'https://www.linkedin.com/in/chintan-parikh-0241ab51/',
+    initials: 'CP',
+  },
+]
+
+const potential = [
+  {
+    name: 'Saeid Vosoughi',
+    title: 'Software Development Manager',
+    company: 'Autodesk',
+    relationship: 'Current manager',
+    linkedin: 'https://www.linkedin.com/in/saeidv',
+    initials: 'SV',
+  },
+  {
+    name: 'Edison Mukadah',
+    title: 'Staff Software Engineer',
+    company: 'Lime',
+    relationship: 'Former Tasktop colleague',
+    linkedin: 'https://www.linkedin.com/in/edison-mukadah',
+    initials: 'EM',
+  },
+  {
+    name: 'Surabhi Potnis',
+    title: 'Senior Engineering Manager',
+    company: 'Narvar',
+    relationship: 'Former WineDirect colleague',
+    linkedin: 'https://www.linkedin.com/in/surabhipotnis/',
+    initials: 'SP',
+  },
+  {
+    name: 'Dan Popovic',
+    title: 'Senior Software Engineer',
+    company: 'General Motors',
+    relationship: 'Former General Motors colleague',
+    linkedin: 'https://www.linkedin.com/in/danpops',
+    initials: 'DP',
+  },
+]
+
+const pending = [
+  {
+    name: 'Daniel Mills',
+    title: 'Vice President of Software Engineering',
+    company: 'Kuva BU · Sensirion Connected Solutions',
+    linkedin: 'https://www.linkedin.com/in/danielmills/',
+    initials: 'DM',
+  },
+  {
+    name: 'Jeff Carroll',
+    title: 'Vice President of Partnerships',
+    company: 'Commerce7',
+    linkedin: 'https://www.linkedin.com/in/jpcarroll/',
+    initials: 'JC',
+  },
+  {
+    name: 'Nicole Bryan',
+    title: 'Founder',
+    company: 'Metis Group',
+    linkedin: 'https://www.linkedin.com/in/jnicolebryan/',
+    initials: 'NB',
+  },
+]
 
 export default function WhySign() {
   return (
@@ -148,6 +231,96 @@ export default function WhySign() {
                   in EB2 NIW cases have no legal exposure. You are simply sharing your professional
                   perspective — and that is both honorable and necessary.
                 </p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* Signers panel */}
+          <AnimatedSection delay={0.2} className="mt-16">
+            <h2 className="font-display text-3xl font-bold text-navy-800 mb-2">Who Has Signed</h2>
+            <p className="text-slate-500 text-sm mb-8">
+              {signed.length} of {signed.length + pending.length} recommenders have signed so far.
+            </p>
+
+            {/* Signed */}
+            <div className="grid sm:grid-cols-3 gap-4 mb-6">
+              {signed.map((p) => (
+                <a
+                  key={p.name}
+                  href={p.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative bg-emerald-50 border border-emerald-200 rounded-xl p-5 flex flex-col items-center text-center hover:shadow-md hover:border-emerald-300 transition-all"
+                >
+                  <span className="absolute top-3 right-3 text-base">❤️</span>
+                  <div className="relative mb-3">
+                    <div className="w-14 h-14 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-lg">
+                      {p.initials}
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-4 h-4 text-emerald-500 fill-emerald-100" />
+                    </div>
+                  </div>
+                  <p className="font-semibold text-navy-800 text-sm leading-snug group-hover:text-emerald-700 transition-colors">
+                    {p.name}
+                  </p>
+                  <p className="text-slate-500 text-xs mt-1 leading-snug">{p.title}</p>
+                  <p className="text-emerald-600 text-xs font-medium mt-1">{p.company}</p>
+                </a>
+              ))}
+            </div>
+
+            {/* Pending */}
+            <div className="grid sm:grid-cols-3 gap-4">
+              {pending.map((p) => (
+                <a
+                  key={p.name}
+                  href={p.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative bg-slate-50 border border-slate-200 rounded-xl p-5 flex flex-col items-center text-center hover:shadow-sm transition-all opacity-60 hover:opacity-80"
+                >
+                  <span className="absolute top-3 right-3 text-base">🙏</span>
+                  <div className="relative mb-3">
+                    <div className="w-14 h-14 rounded-full bg-slate-300 flex items-center justify-center text-slate-500 font-bold text-lg">
+                      {p.initials}
+                    </div>
+                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                      <Clock className="w-3.5 h-3.5 text-slate-400" />
+                    </div>
+                  </div>
+                  <p className="font-semibold text-slate-500 text-sm leading-snug">{p.name}</p>
+                  <p className="text-slate-400 text-xs mt-1 leading-snug">{p.title}</p>
+                  <p className="text-slate-400 text-xs font-medium mt-1">{p.company}</p>
+                </a>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          {/* Potential recommenders */}
+          <AnimatedSection delay={0.2} className="mt-12">
+            <div className="border border-slate-200 rounded-xl p-6 bg-white">
+              <h3 className="font-display text-xl font-bold text-navy-800 mb-1">Potential Recommenders</h3>
+              <p className="text-slate-400 text-xs mb-5">People Maikon may reach out to if additional letters are needed to strengthen the case.</p>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {potential.map((p) => (
+                  <a
+                    key={p.name}
+                    href={p.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center gap-3 p-3 rounded-lg border border-slate-100 hover:border-slate-300 hover:bg-slate-50 transition-all"
+                  >
+                    <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-semibold text-sm flex-shrink-0">
+                      {p.initials}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-semibold text-navy-800 text-sm group-hover:text-navy-600 transition-colors truncate">{p.name}</p>
+                      <p className="text-slate-400 text-xs truncate">{p.title} · {p.company}</p>
+                      <p className="text-slate-300 text-xs italic">{p.relationship}</p>
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
           </AnimatedSection>
