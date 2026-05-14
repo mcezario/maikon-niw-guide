@@ -9,6 +9,7 @@ const links = [
   { to: '/why-sign', label: 'Why Sign?' },
   { to: '/process', label: 'The Process' },
   { to: '/faq', label: 'FAQ' },
+  { to: '/endeavor', label: "Maikon's Endeavor" },
 ]
 
 export default function Navbar() {

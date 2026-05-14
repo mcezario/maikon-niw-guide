@@ -7,6 +7,7 @@ import WhySign from './pages/WhySign'
 import ProcessPage from './pages/ProcessPage'
 import FAQ from './pages/FAQ'
 import SignLetter from './pages/SignLetter'
+import Endeavor from './pages/Endeavor'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/process" element={<ProcessPage />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/sign" element={<SignLetter />} />
+            <Route path="/endeavor" element={<Endeavor />} />
           </Routes>
         </main>
         <Footer />

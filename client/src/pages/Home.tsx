@@ -76,10 +76,36 @@ export default function Home() {
           </motion.div>
 
           <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mt-12 grid sm:grid-cols-2 gap-4"
+          >
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/ExE-HymGlJ4"
+                title="What is EB2 NIW?"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-white/10 aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/p2W4Fwa09Ws"
+                title="EB2 NIW explained"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="mt-16 flex justify-center"
+            transition={{ duration: 1, delay: 1.2 }}
+            className="mt-10 flex justify-center"
           >
             <div className="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-1">
               <motion.div
