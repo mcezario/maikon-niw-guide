@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Star, Shield, Clock, Heart } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 import EB2Slides from '../components/EB2Slides'
-import StatCounter from '../components/StatCounter'
 
 export default function Home() {
   return (
@@ -93,13 +92,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* STATS */}
-      <section className="bg-gradient-to-r from-navy-800 to-navy-900 py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-          <StatCounter value={1100000} suffix="+" label="Green Cards issued yearly" />
-          <StatCounter value={5} suffix=" yrs" label="Average EB2 journey" />
-          <StatCounter value={3} suffix="+" label="Recommenders needed" />
-          <StatCounter value={1} label="Dream that changes everything" />
+      {/* READ TIME */}
+      <section className="bg-navy-900 py-10">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-navy-300 text-sm uppercase tracking-widest font-medium mb-1">This website is a</p>
+          <p className="font-display text-3xl font-bold text-white">15-minute read</p>
+          <p className="text-navy-400 text-sm mt-1">Everything you need to know, start to finish.</p>
         </div>
       </section>
 
@@ -164,14 +162,10 @@ export default function Home() {
       </section>
 
       {/* EMOTIONAL CTA */}
-      <section className="py-20 bg-gradient-to-br from-navy-900 via-navy-800 to-crimson-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gold-400 rounded-full -translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-crimson-400 rounded-full translate-x-1/2 translate-y-1/2" />
-        </div>
-        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 text-center">
+      <section className="py-20 bg-navy-800">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <AnimatedSection>
-            <p className="font-display text-2xl md:text-3xl italic text-white/90 leading-relaxed mb-8">
+            <p className="font-sans text-2xl md:text-3xl font-light text-white leading-relaxed mb-8 tracking-wide">
               "The land of the free only stays free because someone, somewhere,
               believed in someone else enough to open the door."
             </p>
