@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 import ProcessTimeline from '../components/ProcessTimeline'
 
 export default function ProcessPage() {
   return (
-    <div className="pt-16">
+    <div>
       {/* Header */}
       <section className="bg-gradient-to-br from-indigo-800 to-navy-900 text-white py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
@@ -79,12 +78,12 @@ export default function ProcessPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1} className="mt-12 text-center">
-            <Link to="/faq" className="btn-primary mr-4">
+            <a href="#faq" className="btn-primary mr-4">
               Common Questions <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link to="/sign" className="btn-secondary">
+            </a>
+            <a href="#sign" className="btn-secondary">
               Sign the Letter
-            </Link>
+            </a>
           </AnimatedSection>
         </div>
       </section>

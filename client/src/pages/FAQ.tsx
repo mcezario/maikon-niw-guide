@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight, HelpCircle } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 import FAQAccordion from '../components/FAQAccordion'
@@ -75,7 +74,7 @@ const faqGroups = [
 
 export default function FAQ() {
   return (
-    <div className="pt-16">
+    <div>
       <section className="bg-gradient-to-br from-teal-800 to-navy-900 text-white py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <AnimatedSection>
@@ -110,9 +109,9 @@ export default function FAQ() {
               The applicant and their attorney are available to answer any specific concerns you might have.
               Don't hesitate to reach out before signing.
             </p>
-            <Link to="/sign" className="btn-primary">
+            <a href="#sign" className="btn-primary">
               Proceed to Sign the Letter <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </AnimatedSection>
         </div>
       </section>

@@ -31,7 +31,7 @@ const steps = [
 
 export default function SignLetter() {
   return (
-    <div className="pt-16 min-h-screen bg-white">
+    <div className="bg-white">
       {/* Header */}
       <section className="bg-navy-900 text-white py-20">
         <div className="max-w-2xl mx-auto px-6 text-center">

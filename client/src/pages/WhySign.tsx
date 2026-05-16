@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight, Heart, Shield, PenLine, Star, Users, Lightbulb, CheckCircle, Clock } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 
@@ -87,7 +86,7 @@ const pending = [
 
 export default function WhySign() {
   return (
-    <div className="pt-16">
+    <div>
       {/* Header */}
       <section className="relative bg-gradient-to-br from-crimson-700 via-crimson-600 to-navy-800 text-white py-24 overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -326,10 +325,10 @@ export default function WhySign() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1} className="mt-12 text-center">
-            <Link to="/sign" className="btn-primary text-lg py-4 px-10">
+            <a href="#sign" className="btn-primary text-lg py-4 px-10">
               I'm Ready to Sign the Letter
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </a>
           </AnimatedSection>
         </div>
       </section>

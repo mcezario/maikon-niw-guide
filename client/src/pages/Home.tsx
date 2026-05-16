@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Star, Shield, Clock, Heart } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
@@ -66,13 +65,13 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Link to="/what-is-eb2" className="btn-secondary text-base py-3.5 px-8">
+            <a href="#what-is-eb2" className="btn-secondary text-base py-3.5 px-8">
               Learn About EB2 NIW
               <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link to="/sign" className="btn-outline text-base py-3.5 px-8">
+            </a>
+            <a href="#sign" className="btn-outline text-base py-3.5 px-8">
               Sign the Letter
-            </Link>
+            </a>
           </motion.div>
 
           <motion.div
@@ -201,13 +200,13 @@ export default function Home() {
               can earn them a place to call home.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/why-sign" className="btn-secondary">
+              <a href="#why-sign" className="btn-secondary">
                 Why Your Signature Matters
                 <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link to="/sign" className="btn-outline">
+              </a>
+              <a href="#sign" className="btn-outline">
                 I'm Ready to Sign
-              </Link>
+              </a>
             </div>
           </AnimatedSection>
         </div>
@@ -224,19 +223,19 @@ export default function Home() {
           </AnimatedSection>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { to: '/what-is-eb2', label: 'What is EB2 NIW?', desc: 'The full breakdown of this visa category and who qualifies.' },
-              { to: '/why-sign', label: 'Why Sign?', desc: 'Understand the impact your recommendation has on a real person\'s future.' },
-              { to: '/process', label: 'The Process', desc: 'Step-by-step timeline from petition to Green Card.' },
-              { to: '/faq', label: 'Common Questions', desc: 'Answers to every concern a recommender might have.' },
-            ].map(({ to, label, desc }, i) => (
-              <AnimatedSection key={to} delay={i * 0.1}>
-                <Link to={to} className="card group h-full flex flex-col gap-3 hover:border-navy-200 border border-transparent">
+              { hash: 'what-is-eb2', label: 'What is EB2 NIW?', desc: 'The full breakdown of this visa category and who qualifies.' },
+              { hash: 'why-sign', label: 'Why Sign?', desc: 'Understand the impact your recommendation has on a real person\'s future.' },
+              { hash: 'process', label: 'The Process', desc: 'Step-by-step timeline from petition to Green Card.' },
+              { hash: 'faq', label: 'Common Questions', desc: 'Answers to every concern a recommender might have.' },
+            ].map(({ hash, label, desc }, i) => (
+              <AnimatedSection key={hash} delay={i * 0.1}>
+                <a href={`#${hash}`} className="card group h-full flex flex-col gap-3 hover:border-navy-200 border border-transparent">
                   <h3 className="font-bold text-navy-800 group-hover:text-navy-600 transition-colors">{label}</h3>
                   <p className="text-slate-500 text-sm flex-1">{desc}</p>
                   <div className="flex items-center gap-1 text-navy-600 text-sm font-medium group-hover:gap-2 transition-all">
-                    Read more <ArrowRight className="w-4 h-4" />
+                    Scroll to section <ArrowRight className="w-4 h-4" />
                   </div>
-                </Link>
+                </a>
               </AnimatedSection>
             ))}
           </div>

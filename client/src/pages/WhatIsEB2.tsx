@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight, GraduationCap, Briefcase, Globe, Award, CheckCircle } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 
 export default function WhatIsEB2() {
   return (
-    <div className="pt-16">
+    <div>
       {/* Header */}
       <section className="bg-gradient-to-br from-navy-800 to-navy-900 text-white py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
@@ -153,9 +152,9 @@ export default function WhatIsEB2() {
                 Now that you understand what EB2 NIW is, learn about the critical role recommendation
                 letters play in the petition process.
               </p>
-              <Link to="/why-sign" className="btn-secondary">
+              <a href="#why-sign" className="btn-secondary">
                 Why Recommenders Matter <ArrowRight className="w-5 h-5" />
-              </Link>
+              </a>
             </div>
           </AnimatedSection>
         </div>

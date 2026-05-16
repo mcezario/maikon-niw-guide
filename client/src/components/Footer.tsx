@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { Star, Heart } from 'lucide-react'
 
 export default function Footer() {
@@ -23,15 +22,15 @@ export default function Footer() {
             <h4 className="font-semibold text-navy-100 mb-3">Learn More</h4>
             <ul className="space-y-2 text-sm">
               {[
-                { to: '/what-is-eb2', label: 'What is EB2 NIW?' },
-                { to: '/why-sign', label: 'Why Sign?' },
-                { to: '/process', label: 'The Process' },
-                { to: '/faq', label: 'Common Questions' },
-              ].map(({ to, label }) => (
-                <li key={to}>
-                  <Link to={to} className="text-navy-300 hover:text-white transition-colors">
+                { hash: 'what-is-eb2', label: 'What is EB2 NIW?' },
+                { hash: 'why-sign', label: 'Why Sign?' },
+                { hash: 'process', label: 'The Process' },
+                { hash: 'faq', label: 'Common Questions' },
+              ].map(({ hash, label }) => (
+                <li key={hash}>
+                  <a href={`/#${hash}`} className="text-navy-300 hover:text-white transition-colors">
                     {label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -43,9 +42,9 @@ export default function Footer() {
               Your signature on the recommendation letter is a powerful act of support that can
               truly change a life.
             </p>
-            <Link to="/sign" className="btn-secondary text-sm py-2">
+            <a href="/#sign" className="btn-secondary text-sm py-2">
               Sign the Letter
-            </Link>
+            </a>
           </div>
         </div>
 

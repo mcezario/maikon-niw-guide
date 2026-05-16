@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { ArrowRight, Briefcase, Award, Cloud, Database, Code2, CheckCircle } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 
@@ -48,7 +47,7 @@ const certifications = [
 
 export default function Endeavor() {
   return (
-    <div className="pt-16">
+    <div>
       {/* Header */}
       <section className="bg-navy-900 text-white py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
@@ -179,9 +178,9 @@ export default function Endeavor() {
               Maikon's technical record speaks for itself — but USCIS needs to hear it from
               experts like you. Your professional voice is the bridge between his work and his future.
             </p>
-            <Link to="/sign" className="btn-secondary">
+            <a href="#sign" className="btn-secondary">
               See How to Sign <ArrowRight className="w-5 h-5" />
-            </Link>
+            </a>
           </AnimatedSection>
         </div>
       </section>
