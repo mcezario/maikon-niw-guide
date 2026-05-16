@@ -2,12 +2,13 @@ import { useEffect } from 'react'
 import Home from './Home'
 import WhatIsEB2 from './WhatIsEB2'
 import WhySign from './WhySign'
+import WhoHasSigned from './WhoHasSigned'
 import ProcessPage from './ProcessPage'
 import FAQ from './FAQ'
 import Endeavor from './Endeavor'
 import SignLetter from './SignLetter'
 
-const SECTION_IDS = ['home', 'what-is-eb2', 'why-sign', 'process', 'faq', 'endeavor', 'sign']
+const SECTION_IDS = ['home', 'what-is-eb2', 'why-sign', 'who-has-signed', 'process', 'faq', 'endeavor', 'sign']
 
 export default function ScrollPage() {
   useEffect(() => {
@@ -54,6 +55,9 @@ export default function ScrollPage() {
       </section>
       <section id="why-sign" className="scroll-mt-16">
         <WhySign />
+      </section>
+      <section id="who-has-signed" className="scroll-mt-16">
+        <WhoHasSigned />
       </section>
       <section id="process" className="scroll-mt-16">
         <ProcessPage />

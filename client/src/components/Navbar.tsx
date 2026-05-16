@@ -8,6 +8,7 @@ const HASH_LINKS = [
   { hash: 'home', label: 'Home' },
   { hash: 'what-is-eb2', label: 'What is EB2 NIW?' },
   { hash: 'why-sign', label: 'Why Sign?' },
+  { hash: 'who-has-signed', label: 'Who Has Signed' },
   { hash: 'process', label: 'The Process' },
   { hash: 'faq', label: 'FAQ' },
   { hash: 'endeavor', label: "Maikon's Endeavor" },
@@ -55,7 +56,7 @@ export default function Navbar() {
   const transparent = isHome && !scrolled && !open
 
   const linkBase = (active: boolean) =>
-    `px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+    `px-2 py-1.5 rounded-lg text-xs font-medium transition-colors ${
       transparent
         ? active
           ? 'bg-white/20 text-white'
@@ -94,7 +95,7 @@ export default function Navbar() {
             <Star className="w-4 h-4 text-white fill-white" />
           </div>
           <span
-            className={`font-display font-bold text-lg transition-colors ${
+            className={`font-display font-bold text-base transition-colors ${
               transparent ? 'text-white' : 'text-navy-800'
             }`}
           >
@@ -102,7 +103,7 @@ export default function Navbar() {
           </span>
         </a>
 
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden md:flex items-center gap-0.5">
           {HASH_LINKS.map(({ hash, label }) => (
             <a
               key={hash}
@@ -116,7 +117,7 @@ export default function Navbar() {
           <a
             href="#sign"
             onClick={(e) => handleHashClick(e, 'sign')}
-            className="ml-3 btn-secondary text-sm py-2 px-4"
+            className="ml-2 btn-secondary text-xs py-1.5 px-3"
           >
             Sign the Letter
           </a>
