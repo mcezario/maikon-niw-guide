@@ -1,13 +1,57 @@
 import { ArrowRight, Heart, Shield, PenLine, Star, Users, Lightbulb, CheckCircle, Clock } from 'lucide-react'
 import AnimatedSection from '../components/AnimatedSection'
 
-const signed = [
+const independent = [
+  {
+    name: 'Chintan Parikh',
+    title: 'Founder',
+    company: 'Stealth',
+    linkedin: 'https://www.linkedin.com/in/chintan-parikh-0241ab51/',
+    initials: 'CP',
+    signed: true,
+    tbd: false,
+    backup: false,
+  },
+  {
+    name: 'Flavia Costa',
+    title: 'Head of Product',
+    company: 'Cielo',
+    linkedin: 'https://www.linkedin.com/in/flavia-costa-003b7a128/',
+    initials: 'FC',
+    signed: false,
+    tbd: false,
+    backup: false,
+  },
+  {
+    name: 'West Monroe',
+    title: 'Validated Maikon\'s data architecture at WineDirect as aligned with modern cloud best practices',
+    company: 'Management Consulting',
+    linkedin: 'https://www.linkedin.com/company/west-monroe-partners/',
+    initials: '?',
+    signed: false,
+    tbd: true,
+    backup: false,
+  },
+  {
+    name: 'Jeff Carroll',
+    title: 'Vice President of Partnerships',
+    company: 'Commerce7',
+    linkedin: 'https://www.linkedin.com/in/jpcarroll/',
+    initials: 'JC',
+    signed: false,
+    tbd: true,
+    backup: true,
+  },
+]
+
+const dependent = [
   {
     name: 'Ryan Hutchinson',
     title: 'Sr. Software Engineering Manager',
     company: 'General Motors',
     linkedin: 'https://www.linkedin.com/in/ryahutchinson/',
     initials: 'RH',
+    signed: true,
   },
   {
     name: 'Taís Assad Della Santina',
@@ -15,17 +59,27 @@ const signed = [
     company: 'CI&T',
     linkedin: 'https://www.linkedin.com/in/taisassad/',
     initials: 'TA',
+    signed: true,
   },
   {
-    name: 'Chintan Parikh',
+    name: 'Daniel Mills',
+    title: 'Vice President of Software Engineering',
+    company: 'Kuva BU · Sensirion Connected Solutions',
+    linkedin: 'https://www.linkedin.com/in/danielmills/',
+    initials: 'DM',
+    signed: false,
+  },
+  {
+    name: 'Nicole Bryan',
     title: 'Founder',
-    company: 'Stealth',
-    linkedin: 'https://www.linkedin.com/in/chintan-parikh-0241ab51/',
-    initials: 'CP',
+    company: 'Metis Group',
+    linkedin: 'https://www.linkedin.com/in/jnicolebryan/',
+    initials: 'NB',
+    signed: false,
   },
 ]
 
-const potential = [
+const potentialDependent = [
   {
     name: 'Saeid Vosoughi',
     title: 'Software Development Manager',
@@ -60,29 +114,8 @@ const potential = [
   },
 ]
 
-const pending = [
-  {
-    name: 'Daniel Mills',
-    title: 'Vice President of Software Engineering',
-    company: 'Kuva BU · Sensirion Connected Solutions',
-    linkedin: 'https://www.linkedin.com/in/danielmills/',
-    initials: 'DM',
-  },
-  {
-    name: 'Jeff Carroll',
-    title: 'Vice President of Partnerships',
-    company: 'Commerce7',
-    linkedin: 'https://www.linkedin.com/in/jpcarroll/',
-    initials: 'JC',
-  },
-  {
-    name: 'Nicole Bryan',
-    title: 'Founder',
-    company: 'Metis Group',
-    linkedin: 'https://www.linkedin.com/in/jnicolebryan/',
-    initials: 'NB',
-  },
-]
+const totalSigned = [...independent, ...dependent].filter((p) => p.signed).length
+const totalNamed = independent.filter((p) => !p.tbd).length + dependent.length
 
 export default function WhySign() {
   return (
@@ -237,72 +270,160 @@ export default function WhySign() {
           {/* Signers panel */}
           <AnimatedSection delay={0.2} className="mt-16">
             <h2 className="font-display text-3xl font-bold text-navy-800 mb-2">Who Has Signed</h2>
-            <p className="text-slate-500 text-sm mb-8">
-              {signed.length} of {signed.length + pending.length} recommenders have signed so far.
+            <p className="text-slate-500 text-sm mb-10">
+              {totalSigned} of {totalNamed} recommenders have signed so far.
             </p>
 
-            {/* Signed */}
-            <div className="grid sm:grid-cols-3 gap-4 mb-6">
-              {signed.map((p) => (
-                <a
-                  key={p.name}
-                  href={p.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative bg-emerald-50 border border-emerald-200 rounded-xl p-5 flex flex-col items-center text-center hover:shadow-md hover:border-emerald-300 transition-all"
-                >
-                  <span className="absolute top-3 right-3 text-base">❤️</span>
-                  <div className="relative mb-3">
-                    <div className="w-14 h-14 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold text-lg">
-                      {p.initials}
+            {/* Independent Recommenders */}
+            <div className="mb-10">
+              <h3 className="font-semibold text-navy-700 text-sm uppercase tracking-widest mb-1">Independent Recommenders</h3>
+              <p className="text-slate-400 text-xs mb-4">Professionals who know Maikon's work but have no direct employment relationship with him — their letters carry additional weight with USCIS.</p>
+
+              {/* Confirmed / pending */}
+              <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                {independent.filter((p) => !p.tbd).map((p) => (
+                  <a
+                    key={p.name}
+                    href={p.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group relative rounded-xl p-5 flex flex-col items-center text-center transition-all ${
+                      p.signed
+                        ? 'bg-emerald-50 border border-emerald-200 hover:shadow-md hover:border-emerald-300'
+                        : 'bg-slate-50 border border-slate-200 hover:shadow-sm opacity-60 hover:opacity-80'
+                    }`}
+                  >
+                    <span className="absolute top-3 right-3 text-base">{p.signed ? '❤️' : '🙏'}</span>
+                    <div className="relative mb-3">
+                      <div className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg ${
+                        p.signed ? 'bg-emerald-600 text-white' : 'bg-slate-300 text-slate-500'
+                      }`}>
+                        {p.initials}
+                      </div>
+                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                        {p.signed
+                          ? <CheckCircle className="w-4 h-4 text-emerald-500 fill-emerald-100" />
+                          : <Clock className="w-3.5 h-3.5 text-slate-400" />}
+                      </div>
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                      <CheckCircle className="w-4 h-4 text-emerald-500 fill-emerald-100" />
+                    <p className={`font-semibold text-sm leading-snug transition-colors ${
+                      p.signed ? 'text-navy-800 group-hover:text-emerald-700' : 'text-slate-500'
+                    }`}>{p.name}</p>
+                    <p className={`text-xs mt-1 leading-snug ${p.signed ? 'text-slate-500' : 'text-slate-400'}`}>{p.title}</p>
+                    <p className={`text-xs font-medium mt-1 ${p.signed ? 'text-emerald-600' : 'text-slate-400'}`}>{p.company}</p>
+                  </a>
+                ))}
+              </div>
+
+              {/* West Monroe → Jeff Carroll fallback slot */}
+              <div className="relative rounded-2xl border-2 border-dashed border-amber-300 bg-amber-50/40 p-4">
+                <span className="absolute -top-3 left-4 bg-white px-2 py-0.5 text-[10px] font-bold uppercase tracking-widest text-amber-600 border border-amber-200 rounded-full">
+                  Slot 3 — In Pursuit
+                </span>
+                <div className="flex flex-col sm:flex-row items-stretch gap-0">
+                  {/* West Monroe */}
+                  {(() => {
+                    const wm = independent.find((p) => p.name === 'West Monroe')!
+                    return (
+                      <a
+                        href={wm.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex-1 rounded-xl p-5 flex flex-col items-center text-center bg-amber-50 border border-amber-200 hover:shadow-sm hover:border-amber-300 transition-all"
+                      >
+                        <span className="text-base mb-2">❓</span>
+                        <div className="w-14 h-14 rounded-full bg-amber-200 text-amber-600 flex items-center justify-center font-bold text-2xl mb-3">
+                          ?
+                        </div>
+                        <p className="font-semibold text-sm text-amber-700 leading-snug">{wm.name}</p>
+                        <p className="text-xs mt-1 text-amber-600/70 leading-snug">{wm.title}</p>
+                        <p className="text-xs font-medium mt-1 text-amber-500">{wm.company}</p>
+                      </a>
+                    )
+                  })()}
+
+                  {/* Arrow connector */}
+                  <div className="flex sm:flex-col items-center justify-center px-1 py-3 sm:py-0 sm:px-2 gap-1 flex-shrink-0">
+                    <div className="flex-1 sm:flex-none w-px sm:w-auto h-auto sm:h-px bg-amber-300 sm:hidden" />
+                    <div className="flex flex-col items-center gap-0.5">
+                      <ArrowRight className="w-5 h-5 text-amber-400 rotate-90 sm:rotate-0" />
+                      <span className="text-[9px] font-semibold text-amber-500 uppercase tracking-wide text-center leading-tight">
+                        if not<br className="hidden sm:block" /> available
+                      </span>
                     </div>
+                    <div className="flex-1 sm:flex-none w-px sm:w-auto h-auto sm:h-px bg-amber-300 sm:hidden" />
                   </div>
-                  <p className="font-semibold text-navy-800 text-sm leading-snug group-hover:text-emerald-700 transition-colors">
-                    {p.name}
-                  </p>
-                  <p className="text-slate-500 text-xs mt-1 leading-snug">{p.title}</p>
-                  <p className="text-emerald-600 text-xs font-medium mt-1">{p.company}</p>
-                </a>
-              ))}
+
+                  {/* Jeff Carroll */}
+                  {(() => {
+                    const jc = independent.find((p) => p.backup)!
+                    return (
+                      <a
+                        href={jc.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex-1 rounded-xl p-5 flex flex-col items-center text-center bg-amber-50 border border-amber-200 hover:shadow-sm hover:border-amber-300 transition-all opacity-75 hover:opacity-100"
+                      >
+                        <span className="text-base mb-2">❓</span>
+                        <div className="w-14 h-14 rounded-full bg-amber-100 text-amber-500 flex items-center justify-center font-bold text-lg mb-3">
+                          {jc.initials}
+                        </div>
+                        <p className="font-semibold text-sm text-amber-700 leading-snug">{jc.name}</p>
+                        <p className="text-xs mt-1 text-amber-600/70 leading-snug">{jc.title}</p>
+                        <p className="text-xs font-medium mt-1 text-amber-500">{jc.company}</p>
+                      </a>
+                    )
+                  })()}
+                </div>
+              </div>
             </div>
 
-            {/* Pending */}
-            <div className="grid sm:grid-cols-3 gap-4">
-              {pending.map((p) => (
-                <a
-                  key={p.name}
-                  href={p.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative bg-slate-50 border border-slate-200 rounded-xl p-5 flex flex-col items-center text-center hover:shadow-sm transition-all opacity-60 hover:opacity-80"
-                >
-                  <span className="absolute top-3 right-3 text-base">🙏</span>
-                  <div className="relative mb-3">
-                    <div className="w-14 h-14 rounded-full bg-slate-300 flex items-center justify-center text-slate-500 font-bold text-lg">
-                      {p.initials}
+            {/* Dependent Recommenders */}
+            <div className="mb-10">
+              <h3 className="font-semibold text-navy-700 text-sm uppercase tracking-widest mb-1">Dependent Recommenders</h3>
+              <p className="text-slate-400 text-xs mb-4">Colleagues and managers who have worked directly with Maikon and can speak to his professional contributions firsthand.</p>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {dependent.map((p) => (
+                  <a
+                    key={p.name}
+                    href={p.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group relative rounded-xl p-5 flex flex-col items-center text-center transition-all ${
+                      p.signed
+                        ? 'bg-emerald-50 border border-emerald-200 hover:shadow-md hover:border-emerald-300'
+                        : 'bg-slate-50 border border-slate-200 hover:shadow-sm opacity-60 hover:opacity-80'
+                    }`}
+                  >
+                    <span className="absolute top-3 right-3 text-base">{p.signed ? '❤️' : '🙏'}</span>
+                    <div className="relative mb-3">
+                      <div className={`w-14 h-14 rounded-full flex items-center justify-center font-bold text-lg ${
+                        p.signed ? 'bg-emerald-600 text-white' : 'bg-slate-300 text-slate-500'
+                      }`}>
+                        {p.initials}
+                      </div>
+                      <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center">
+                        {p.signed
+                          ? <CheckCircle className="w-4 h-4 text-emerald-500 fill-emerald-100" />
+                          : <Clock className="w-3.5 h-3.5 text-slate-400" />}
+                      </div>
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full flex items-center justify-center">
-                      <Clock className="w-3.5 h-3.5 text-slate-400" />
-                    </div>
-                  </div>
-                  <p className="font-semibold text-slate-500 text-sm leading-snug">{p.name}</p>
-                  <p className="text-slate-400 text-xs mt-1 leading-snug">{p.title}</p>
-                  <p className="text-slate-400 text-xs font-medium mt-1">{p.company}</p>
-                </a>
-              ))}
+                    <p className={`font-semibold text-sm leading-snug transition-colors ${
+                      p.signed ? 'text-navy-800 group-hover:text-emerald-700' : 'text-slate-500'
+                    }`}>{p.name}</p>
+                    <p className={`text-xs mt-1 leading-snug ${p.signed ? 'text-slate-500' : 'text-slate-400'}`}>{p.title}</p>
+                    <p className={`text-xs font-medium mt-1 ${p.signed ? 'text-emerald-600' : 'text-slate-400'}`}>{p.company}</p>
+                  </a>
+                ))}
+              </div>
             </div>
-          </AnimatedSection>
 
-          {/* Potential recommenders */}
-          <AnimatedSection delay={0.2} className="mt-12">
+            {/* Potential Dependent Recommenders */}
             <div className="border border-slate-200 rounded-xl p-6 bg-white">
-              <h3 className="font-display text-xl font-bold text-navy-800 mb-1">Potential Recommenders</h3>
+              <h3 className="font-display text-base font-bold text-navy-800 mb-1">Potential Dependent Recommenders</h3>
               <p className="text-slate-400 text-xs mb-5">People Maikon may reach out to if additional letters are needed to strengthen the case.</p>
               <div className="grid sm:grid-cols-2 gap-3">
-                {potential.map((p) => (
+                {potentialDependent.map((p) => (
                   <a
                     key={p.name}
                     href={p.linkedin}
