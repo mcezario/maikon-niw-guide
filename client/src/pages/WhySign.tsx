@@ -46,6 +46,22 @@ const independent = [
 
 const dependent = [
   {
+    name: 'Christopher Anthony',
+    title: 'Application Developer Manager',
+    company: 'Info-Tech Research Group',
+    linkedin: 'https://www.linkedin.com/in/christopher-anthony-6a1a395',
+    initials: 'CA',
+    signed: true,
+  },
+  {
+    name: 'Daniel Mills',
+    title: 'Vice President of Software Engineering',
+    company: 'Kuva BU · Sensirion Connected Solutions',
+    linkedin: 'https://www.linkedin.com/in/danielmills/',
+    initials: 'DM',
+    signed: false,
+  },
+  {
     name: 'Ryan Hutchinson',
     title: 'Sr. Software Engineering Manager',
     company: 'General Motors',
@@ -61,32 +77,16 @@ const dependent = [
     initials: 'TA',
     signed: true,
   },
-  {
-    name: 'Daniel Mills',
-    title: 'Vice President of Software Engineering',
-    company: 'Kuva BU · Sensirion Connected Solutions',
-    linkedin: 'https://www.linkedin.com/in/danielmills/',
-    initials: 'DM',
-    signed: false,
-  },
-  {
-    name: 'Nicole Bryan',
-    title: 'Founder',
-    company: 'Metis Group',
-    linkedin: 'https://www.linkedin.com/in/jnicolebryan/',
-    initials: 'NB',
-    signed: false,
-  },
 ]
 
 const potentialDependent = [
   {
-    name: 'Saeid Vosoughi',
-    title: 'Software Development Manager',
-    company: 'Autodesk',
-    relationship: 'Current manager',
-    linkedin: 'https://www.linkedin.com/in/saeidv',
-    initials: 'SV',
+    name: 'Dan Popovic',
+    title: 'Senior Software Engineer',
+    company: 'General Motors',
+    relationship: 'Former General Motors colleague',
+    linkedin: 'https://www.linkedin.com/in/danpops',
+    initials: 'DP',
   },
   {
     name: 'Edison Mukadah',
@@ -97,20 +97,20 @@ const potentialDependent = [
     initials: 'EM',
   },
   {
+    name: 'Saeid Vosoughi',
+    title: 'Software Development Manager',
+    company: 'Autodesk',
+    relationship: 'Current manager',
+    linkedin: 'https://www.linkedin.com/in/saeidv',
+    initials: 'SV',
+  },
+  {
     name: 'Surabhi Potnis',
     title: 'Senior Engineering Manager',
     company: 'Narvar',
     relationship: 'Former WineDirect colleague',
     linkedin: 'https://www.linkedin.com/in/surabhipotnis/',
     initials: 'SP',
-  },
-  {
-    name: 'Dan Popovic',
-    title: 'Senior Software Engineer',
-    company: 'General Motors',
-    relationship: 'Former General Motors colleague',
-    linkedin: 'https://www.linkedin.com/in/danpops',
-    initials: 'DP',
   },
 ]
 
