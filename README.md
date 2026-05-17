@@ -1,8 +1,8 @@
 # EB2 NIW Educative Website
 
-A full-stack site that educates recommenders about Maikon's EB2 NIW process and collects recommendation letter signatures via DocuSign.
+A static site that educates recommenders about Maikon's EB2 NIW process and guides them to sign his recommendation letter.
 
-**Stack:** Vite + React + TypeScript + Tailwind CSS (client) · Express + TypeScript + DocuSign eSign SDK (server)
+**Stack:** Vite + React + TypeScript + Tailwind CSS
 
 ---
 
@@ -10,8 +10,7 @@ A full-stack site that educates recommenders about Maikon's EB2 NIW process and 
 
 ```
 eb2-educative/
-├── client/   # React frontend (Vite + React Router + Tailwind)
-└── server/   # Express API (DocuSign integration, access codes, letter PDF serving)
+└── client/   # React frontend (Vite + React Router + Tailwind)
 ```
 
 ---
@@ -36,23 +35,9 @@ Old path-based URLs (`/sign`, `/endeavor`, etc.) redirect to the correct hash vi
 
 ## Setup
 
-### Client
-
 ```bash
 cd client && npm install
 ```
-
-### Server
-
-```bash
-cd server && npm install
-```
-
-Copy `server/.env.example` to `server/.env` and fill in:
-- `ACCESS_CODES` — comma-separated `CODE:Name:Email` entries
-- DocuSign credentials (`DOCUSIGN_*` vars)
-
-Place the recommendation letter PDF at `server/public/letters/recommendation_letter.pdf`.
 
 ---
 
@@ -61,11 +46,7 @@ Place the recommendation letter PDF at `server/public/letters/recommendation_let
 ### Development
 
 ```bash
-# Terminal 1 — frontend
 cd client && npm run dev      # http://localhost:5173
-
-# Terminal 2 — backend
-cd server && npm run dev      # http://localhost:3001
 ```
 
 ### Production build

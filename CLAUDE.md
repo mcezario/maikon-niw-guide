@@ -24,9 +24,9 @@ Single-page scroll at `/`. All sections live in `client/src/pages/ScrollPage.tsx
 
 Single source of truth: `client/src/pages/WhoHasSigned.tsx`.
 
-- `independent[]` — has `signed`, `tbd`, `backup` booleans. `tbd: true` = unknown/placeholder contact. `backup: true` = fallback for the slot above it.
-- `dependent[]` — has `signed` boolean only.
-- `potentialDependent[]` — no signed state; display only.
+- `independent[]` — has `signed`, `tbd`, `backup` booleans. `tbd: true` = unknown/placeholder contact. `backup: true` = fallback for the slot above it. Cards show a status line: "Status: Signed" (green) or "Status: Letter drafted, waiting for reply" (gray), pinned bottom-left.
+- `dependent[]` — has `signed` boolean and a `workedAt` field (company where Maikon and the recommender worked together). Same status card treatment as independent.
+- No `potentialDependent[]` array — that section has been removed.
 - Keep each group sorted alphabetically by first name (except TBD/backup slots which follow the confirmed entries).
 
 ## Scroll spy
@@ -36,21 +36,12 @@ Single source of truth: `client/src/pages/WhoHasSigned.tsx`.
 ## Dev commands
 
 ```bash
-# Frontend
 cd client && npm install
 cd client && npm run dev      # http://localhost:5173
 cd client && npm run build    # output: client/dist/
-
-# Backend
-cd server && npm install
-cd server && npm run dev      # http://localhost:3001
 ```
 
 ## Deployment
 
 Vercel Git integration — push to `main` = auto production deploy. No local `.vercel/project.json`. Do not run `vercel --prod` manually.
 
-## Environment
-
-- `server/.env` — `ACCESS_CODES=CODE:Name:Email` (comma-separated), plus DocuSign credentials (`DOCUSIGN_*`).
-- Recommendation letter PDF: `server/public/letters/recommendation_letter.pdf`.
