@@ -186,61 +186,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* EMOTIONAL CTA */}
-      <section className="py-20 bg-navy-800">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-          <AnimatedSection>
-            <p className="font-sans text-2xl md:text-3xl font-light text-white leading-relaxed mb-8 tracking-wide">
-              "The land of the free only stays free because someone, somewhere,
-              believed in someone else enough to open the door."
-            </p>
-            <p className="text-navy-300 mb-10 text-lg">
-              Your signature doesn't just support a visa application. It supports a person's
-              courage, their years of sacrifice, and their belief that hard work and dedication
-              can earn them a place to call home.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#why-sign" className="btn-secondary">
-                Why Your Signature Matters
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a href="#sign" className="btn-outline">
-                I'm Ready to Sign
-              </a>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* QUICK LINKS */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <AnimatedSection className="text-center mb-12">
-            <h2 className="section-title mb-4">Explore to Learn More</h2>
-            <p className="section-subtitle max-w-xl mx-auto">
-              Still have questions? We've prepared detailed guides for every concern.
-            </p>
-          </AnimatedSection>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { hash: 'what-is-eb2', label: 'What is EB2 NIW?', desc: 'The full breakdown of this visa category and who qualifies.' },
-              { hash: 'why-sign', label: 'Why Sign?', desc: 'Understand the impact your recommendation has on a real person\'s future.' },
-              { hash: 'process', label: 'The Process', desc: 'Step-by-step timeline from petition to Green Card.' },
-              { hash: 'faq', label: 'Common Questions', desc: 'Answers to every concern a recommender might have.' },
-            ].map(({ hash, label, desc }, i) => (
-              <AnimatedSection key={hash} delay={i * 0.1}>
-                <a href={`#${hash}`} className="card group h-full flex flex-col gap-3 hover:border-navy-200 border border-transparent">
-                  <h3 className="font-bold text-navy-800 group-hover:text-navy-600 transition-colors">{label}</h3>
-                  <p className="text-slate-500 text-sm flex-1">{desc}</p>
-                  <div className="flex items-center gap-1 text-navy-600 text-sm font-medium group-hover:gap-2 transition-all">
-                    Scroll to section <ArrowRight className="w-4 h-4" />
-                  </div>
-                </a>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

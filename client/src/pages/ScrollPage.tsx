@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { track } from '@vercel/analytics'
 import Home from './Home'
 import WhatIsEB2 from './WhatIsEB2'
 import WhySign from './WhySign'
@@ -30,6 +31,7 @@ export default function ScrollPage() {
             if (currentUrl !== newUrl) {
               window.history.replaceState(null, '', newUrl)
               window.dispatchEvent(new CustomEvent('scrollspy'))
+              track('section_view', { section: id })
             }
           }
         }
