@@ -49,6 +49,7 @@ const dependent = [
     name: 'Christopher Anthony',
     title: 'Application Developer Manager',
     company: 'Info-Tech Research Group',
+    workedAt: 'Tasktop',
     linkedin: 'https://www.linkedin.com/in/christopher-anthony-6a1a395',
     initials: 'CA',
     signed: true,
@@ -57,6 +58,7 @@ const dependent = [
     name: 'Daniel Mills',
     title: 'Vice President of Software Engineering',
     company: 'Kuva BU · Sensirion Connected Solutions',
+    workedAt: 'WineDirect',
     linkedin: 'https://www.linkedin.com/in/danielmills/',
     initials: 'DM',
     signed: false,
@@ -65,52 +67,28 @@ const dependent = [
     name: 'Ryan Hutchinson',
     title: 'Sr. Software Engineering Manager',
     company: 'General Motors',
+    workedAt: 'General Motors',
     linkedin: 'https://www.linkedin.com/in/ryahutchinson/',
     initials: 'RH',
     signed: true,
   },
   {
-    name: 'Taís Assad Della Santina',
-    title: 'IT Executive · Head of Digital Transformation',
-    company: 'CI&T',
-    linkedin: 'https://www.linkedin.com/in/taisassad/',
-    initials: 'TA',
-    signed: true,
-  },
-]
-
-const potentialDependent = [
-  {
-    name: 'Dan Popovic',
-    title: 'Senior Software Engineer',
-    company: 'General Motors',
-    relationship: 'Former General Motors colleague',
-    linkedin: 'https://www.linkedin.com/in/danpops',
-    initials: 'DP',
-  },
-  {
-    name: 'Edison Mukadah',
-    title: 'Staff Software Engineer',
-    company: 'Lime',
-    relationship: 'Former Tasktop colleague',
-    linkedin: 'https://www.linkedin.com/in/edison-mukadah',
-    initials: 'EM',
-  },
-  {
-    name: 'Saeid Vosoughi',
-    title: 'Software Development Manager',
-    company: 'Autodesk',
-    relationship: 'Current manager',
-    linkedin: 'https://www.linkedin.com/in/saeidv',
-    initials: 'SV',
-  },
-  {
     name: 'Surabhi Potnis',
     title: 'Senior Engineering Manager',
     company: 'Narvar',
-    relationship: 'Former WineDirect colleague',
+    workedAt: 'WineDirect',
     linkedin: 'https://www.linkedin.com/in/surabhipotnis/',
     initials: 'SP',
+    signed: false,
+  },
+  {
+    name: 'Taís Assad Della Santina',
+    title: 'IT Executive · Head of Digital Transformation',
+    company: 'CI&T',
+    workedAt: 'CI&T',
+    linkedin: 'https://www.linkedin.com/in/taisassad/',
+    initials: 'TA',
+    signed: true,
   },
 ]
 
@@ -154,7 +132,7 @@ export default function WhoHasSigned() {
                   href={p.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative rounded-xl p-5 flex flex-col items-center text-center transition-all ${
+                  className={`group relative rounded-xl p-5 pb-8 flex flex-col items-center text-center transition-all ${
                     p.signed
                       ? 'bg-emerald-50 border border-emerald-200 hover:shadow-md hover:border-emerald-300'
                       : 'bg-slate-50 border border-slate-200 hover:shadow-sm opacity-60 hover:opacity-80'
@@ -178,6 +156,9 @@ export default function WhoHasSigned() {
                   }`}>{p.name}</p>
                   <p className={`text-xs mt-1 leading-snug ${p.signed ? 'text-slate-500' : 'text-slate-400'}`}>{p.title}</p>
                   <p className={`text-xs font-medium mt-1 ${p.signed ? 'text-emerald-600' : 'text-slate-400'}`}>{p.company}</p>
+                  <p className={`absolute bottom-3 left-4 text-[10px] ${p.signed ? 'text-emerald-600' : 'text-slate-400'}`}>
+                    <span className="font-bold">Status:</span> {p.signed ? 'Signed' : 'Letter drafted, waiting for reply'}
+                  </p>
                 </a>
               ))}
             </div>
@@ -220,18 +201,23 @@ export default function WhoHasSigned() {
                 {(() => {
                   const jc = independent.find((p) => p.backup)!
                   return (
-                    <a
-                      href={jc.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex-1 rounded-xl p-5 flex flex-col items-center text-center bg-amber-50 border border-amber-200 hover:shadow-sm hover:border-amber-300 transition-all opacity-75 hover:opacity-100"
-                    >
-                      <span className="text-base mb-2">❓</span>
-                      <div className="w-14 h-14 rounded-full bg-amber-100 text-amber-500 flex items-center justify-center font-bold text-lg mb-3">{jc.initials}</div>
-                      <p className="font-semibold text-sm text-amber-700 leading-snug">{jc.name}</p>
-                      <p className="text-xs mt-1 text-amber-600/70 leading-snug">{jc.title}</p>
-                      <p className="text-xs font-medium mt-1 text-amber-500">{jc.company}</p>
-                    </a>
+                    <div className="flex-1 flex flex-col gap-2">
+                      <a
+                        href={jc.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group rounded-xl p-5 flex flex-col items-center text-center bg-amber-50 border border-amber-200 hover:shadow-sm hover:border-amber-300 transition-all opacity-75 hover:opacity-100"
+                      >
+                        <span className="text-base mb-2">❓</span>
+                        <div className="w-14 h-14 rounded-full bg-amber-100 text-amber-500 flex items-center justify-center font-bold text-lg mb-3">{jc.initials}</div>
+                        <p className="font-semibold text-sm text-amber-700 leading-snug">{jc.name}</p>
+                        <p className="text-xs mt-1 text-amber-600/70 leading-snug">{jc.title}</p>
+                        <p className="text-xs font-medium mt-1 text-amber-500">{jc.company}</p>
+                      </a>
+                      <p className="text-[11px] text-amber-700/70 leading-relaxed px-1">
+                        Jeff intermediated WineDirect's engagement with West Monroe and could speak directly to the consultancy's findings about Maikon's work — making him a strong fallback voice for that validation.
+                      </p>
+                    </div>
                   )
                 })()}
               </div>
@@ -241,15 +227,15 @@ export default function WhoHasSigned() {
           {/* Dependent Recommenders */}
           <AnimatedSection delay={0.1} className="mb-12">
             <h2 className="font-semibold text-navy-700 text-sm uppercase tracking-widest mb-1">Dependent Recommenders</h2>
-            <p className="text-slate-400 text-xs mb-5">Colleagues and managers who have worked directly with Maikon and can speak to his professional contributions firsthand.</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <p className="text-slate-400 text-xs mb-5">Managers who have worked directly with Maikon and can speak to his professional contributions firsthand.</p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {dependent.map((p) => (
                 <a
                   key={p.name}
                   href={p.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative rounded-xl p-5 flex flex-col items-center text-center transition-all ${
+                  className={`group relative rounded-xl p-5 pb-8 flex flex-col items-center text-center transition-all ${
                     p.signed
                       ? 'bg-emerald-50 border border-emerald-200 hover:shadow-md hover:border-emerald-300'
                       : 'bg-slate-50 border border-slate-200 hover:shadow-sm opacity-60 hover:opacity-80'
@@ -273,36 +259,14 @@ export default function WhoHasSigned() {
                   }`}>{p.name}</p>
                   <p className={`text-xs mt-1 leading-snug ${p.signed ? 'text-slate-500' : 'text-slate-400'}`}>{p.title}</p>
                   <p className={`text-xs font-medium mt-1 ${p.signed ? 'text-emerald-600' : 'text-slate-400'}`}>{p.company}</p>
+                  <p className="text-xs mt-1 text-slate-400">
+                    <span className="font-bold">Worked together at:</span> {p.workedAt}
+                  </p>
+                  <p className={`absolute bottom-3 left-4 text-[10px] ${p.signed ? 'text-emerald-600' : 'text-slate-400'}`}>
+                    <span className="font-bold">Status:</span> {p.signed ? 'Signed' : 'Letter drafted, waiting for reply'}
+                  </p>
                 </a>
               ))}
-            </div>
-          </AnimatedSection>
-
-          {/* Potential Dependent Recommenders */}
-          <AnimatedSection delay={0.2}>
-            <div className="border border-slate-200 rounded-xl p-6 bg-white">
-              <h3 className="font-display text-base font-bold text-navy-800 mb-1">Potential Dependent Recommenders</h3>
-              <p className="text-slate-400 text-xs mb-5">People Maikon may reach out to if additional letters are needed to strengthen the case.</p>
-              <div className="grid sm:grid-cols-2 gap-3">
-                {potentialDependent.map((p) => (
-                  <a
-                    key={p.name}
-                    href={p.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center gap-3 p-3 rounded-lg border border-slate-100 hover:border-slate-300 hover:bg-slate-50 transition-all"
-                  >
-                    <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-semibold text-sm flex-shrink-0">
-                      {p.initials}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="font-semibold text-navy-800 text-sm group-hover:text-navy-600 transition-colors truncate">{p.name}</p>
-                      <p className="text-slate-400 text-xs truncate">{p.title} · {p.company}</p>
-                      <p className="text-slate-300 text-xs italic">{p.relationship}</p>
-                    </div>
-                  </a>
-                ))}
-              </div>
             </div>
           </AnimatedSection>
 
