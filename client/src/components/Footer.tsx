@@ -24,6 +24,7 @@ export default function Footer() {
               {[
                 { hash: 'what-is-eb2', label: 'What is EB2 NIW?' },
                 { hash: 'why-sign', label: 'Why Sign?' },
+                { hash: 'who-has-signed', label: 'Who Has Signed' },
                 { hash: 'process', label: 'The Process' },
                 { hash: 'faq', label: 'Common Questions' },
               ].map(({ hash, label }) => (
